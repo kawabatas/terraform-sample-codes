@@ -1,9 +1,9 @@
 provider "google" {
-  project = string
+  project = ""
 }
 
 resource "google_sql_database_instance" "master" {
-  name                = string
+  name                = ""
   database_version    = "MYSQL_5_7"
   region              = "asia-northeast1"
   deletion_protection = false
@@ -45,22 +45,22 @@ resource "google_sql_database_instance" "master" {
 
     ip_configuration {
       authorized_networks {
-        name  = string
-        value = string
+        name  = ""
+        value = ""
       }
     }
   }
 }
 
 resource "google_sql_user" "users" {
-  name     = string
+  name     = ""
   instance = google_sql_database_instance.master.name
   host     = "%"
-  password = string
+  password = ""
 }
 
 resource "google_sql_database" "database" {
-  name     = string
+  name     = ""
   instance = google_sql_database_instance.master.name
   charset  = "utf8mb4"
 }
